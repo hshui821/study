@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.net.TrafficStats;
 import android.os.Build;
 import android.os.SystemClock;
+import android.os.Process;
 
 import java.util.concurrent.BlockingQueue;
 

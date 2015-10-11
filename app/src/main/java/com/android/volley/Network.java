@@ -10,5 +10,5 @@ public interface Network {
      * @return A {@link NetworkResponse} with data and caching metadata; will never be null
      * @throws VolleyError on error
      */
-    public NetworkReponse performRequest(Request<?> request) throws VolleyError;
+    public NetworkResponse performRequest(Request<?> request) throws VolleyError;
 }
