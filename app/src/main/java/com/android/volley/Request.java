@@ -270,7 +270,7 @@ public abstract class Request<T> implements Comparable<Request<T>> {
         IMMEDIATE
     }
 
-    public Priority getPrority() {
+    public Priority getPriority() {
         return Priority.NORMAL;
     }
 

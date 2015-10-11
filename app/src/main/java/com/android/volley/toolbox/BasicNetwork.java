@@ -18,6 +18,7 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -47,6 +48,8 @@ public class BasicNetwork implements Network {
     private static int DEFAULT_POOL_SIZE = 4096;
 
     protected final HttpStack mHttpStack;
+
+    private final ByteArrayPool mPool;
 
     /**
      * @param httpStack HTTP stack to be used
@@ -221,7 +224,7 @@ public class BasicNetwork implements Network {
 
     /** Reads the contents of HttpEntity into a byte[]. */
     private byte[] entityToBytes(HttpEntity entity) throws IOException, ServerError {
-        PoolingByteArrayOutputStream bytes = new PollingByteArrayO utputStream(mPool, (int) entity.getContentLength());
+        PoolingByteArrayOutputStream bytes = new PollingByteArrayOutputStream(mPool, (int) entity.getContentLength());
         byte[] buffer = null;
         try{
             InputStream in = entity.getContent();
